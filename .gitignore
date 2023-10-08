@@ -4,8 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### DB - excluse everything except table data
-db/*
-!db/my_database
+db
 
 ### IntelliJ IDEA ###
 .idea

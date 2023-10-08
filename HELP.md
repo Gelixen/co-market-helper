@@ -15,6 +15,15 @@ The following guides illustrate how to use some features concretely:
 * [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
 
 
-```
+```shell
+#connect to docker mysql
 mysql --host=localhost --user=my_user --password=my_password my_database
+
+#backup DB data
+docker exec <CONTAINER> /usr/bin/mysqldump -u root --password=root  -r <DATABASE> | Set-Content backup.sql
+docker exec <CONTAINER> /usr/bin/mysqldump -u root --password=root  -r <DATABASE> > backup.sql
+
+#restore DB data
+cat backup.sql | docker exec -i <CONTAINER> /usr/bin/mysql -u root  
+--password=root <DATABASE>
 ```
